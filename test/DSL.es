@@ -1,3 +1,31 @@
+// SQL for selecting all records that have null account numbers
+POST _sql?format=txt
+{
+    "query": "SELECT * FROM accounts WHERE account_number IS NULL"
+}
+
+// Translate SQL to DSL (Domain Specific Language)
+POST _sql/translate
+{
+    "query": "SELECT * FROM accounts WHERE account_number IS NULL"
+} 
+
+// DSL code to delete all records that have null account numbers
+POST accounts/_delete_by_query
+{
+    "query": {
+        "bool": {
+            "must_not": [
+                {
+                    "exists": {
+                        "field": "account_number"
+                    }
+                }
+            ]
+        }
+    }
+}
+
 /*  match/must  */
 // show me everything
 GET accounts/_search
