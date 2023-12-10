@@ -217,7 +217,7 @@ GET accounts/_search
     "aggs": {
         "states": {
             "terms": {
-                "field": "state.keyword"
+                "field": "state"
             }
         }
     }
@@ -231,7 +231,7 @@ GET accounts/_search
     "aggs": {
         "states": {
             "terms": {
-                "field": "state.keyword"
+                "field": "state"
             },
             "aggs": {
                 "avg_bal": {
@@ -251,7 +251,7 @@ GET accounts/_search
     "aggs": {
         "states": {
             "terms": {
-                "field": "state.keyword"
+                "field": "state"
             },
             "aggs": {
                 "avg_bal": {
@@ -276,7 +276,7 @@ GET accounts/_search
     "aggs": {
         "states": {
             "terms": {
-                "field": "state.keyword"
+                "field": "state"
             },
             "aggs": {
                 "avg_bal": {
@@ -325,7 +325,7 @@ GET accounts/_search
     "aggs": {
         "states": {
             "terms": {
-                "field": "state.keyword"
+                "field": "state"
             }
         }
     }
@@ -341,7 +341,7 @@ GET accounts/_search
     "aggs": {
         "states": {
             "terms": {
-                "field": "state.keyword"
+                "field": "state"
             }
         }
     }
