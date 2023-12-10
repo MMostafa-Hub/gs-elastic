@@ -1,31 +1,39 @@
-#################  match/must  ######################
-# show me everything
+/*  match/must  */
+// show me everything
 GET accounts/_search
 
-# find CA accounts only
-GET accounts/_search
-{
-  "query": {
-    "match": {
-      "state": "CA"
-    }
-  }
-}
-
-# find "Techade" accounts in CA only
+// find CA accounts only
 GET accounts/_search
 {
-  "query": {
-    "bool": {
-      "must": [
-        { "match": {"state": "CA"} },
-        { "match": {"employer": "Techade"}}
-      ]
+    "query": {
+        "match": {
+            "state": "CA"
+        }
     }
-  }
 }
 
-# find non "Techade" accounts outside of CA
+// find "Techade" accounts in CA only
+GET accounts/_search
+{
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "state": "CA"
+                    }
+                },
+                {
+                    "match": {
+                        "employer": "Techade"
+                    }
+                }
+            ]
+        }
+    }
+}
+
+// find non "Techade" accounts outside of CA
 GET accounts/_search
 {
   "query": {
@@ -39,7 +47,7 @@ GET accounts/_search
 }
 
 
-# let's combine them to search for non "Techade" accounts inside CA
+// let's combine them to search for non "Techade" accounts inside CA
 GET accounts/_search
 {
   "query": {
@@ -56,7 +64,7 @@ GET accounts/_search
   }
 }
 
-# Boost results for Smith
+// Boost results for Smith
 GET accounts/_search
 {
   "query": {
@@ -75,7 +83,7 @@ GET accounts/_search
   }
 }
 
-################## Term Query ##########################
+//################# Term Query ##########################
 # 
 GET accounts/_search
 {
