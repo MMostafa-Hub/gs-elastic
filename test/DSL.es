@@ -217,7 +217,8 @@ GET accounts/_search
     "aggs": {
         "states": {
             "terms": {
-                "field": "state"
+                "field": "state",
+                "size": 20
             }
         }
     }
